@@ -21,7 +21,7 @@ public class licenceController {
 	@GetMapping("/main")
 	public String isMain(Model theModel) {
 
-		theModel.addAttribute("theDate", new java.util.Date());
+//		theModel.addAttribute("theDate", new java.util.Date());
 
 		return "main";
 	}
@@ -29,7 +29,7 @@ public class licenceController {
 	@GetMapping("/inputdetails")
 	public String isInput(Model theModel) {
 
-		theModel.addAttribute("theDate", new java.util.Date());
+//		theModel.addAttribute("theDate", new java.util.Date());
 
 		return "inputdetails";
 	}
@@ -37,7 +37,7 @@ public class licenceController {
 	@PostMapping("/payment")
 	public String isPayment(Model theModel) {
 
-		theModel.addAttribute("theDate", new java.util.Date());
+//		theModel.addAttribute("theDate", new java.util.Date());
 
 		return "payment";
 	}
@@ -45,7 +45,7 @@ public class licenceController {
 	@PostMapping("/completed")
 	public String isCompleted(Model theModel) {
 
-		theModel.addAttribute("theDate", new java.util.Date());
+//		theModel.addAttribute("theDate", new java.util.Date());
 
 		return "completed";
 	}
