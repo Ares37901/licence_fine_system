@@ -59,13 +59,13 @@ public class FineWebController {
         }
         else {
             // Update the specific column of the entity
-            Licence theLicence = licenceService.findByReference(theReference);
+            Licence theLicence = liceService.findByReference(theReference);
             double balance = theLicence.getFine();
             balance = balance - fineAmountDTO.getAmount();
             theLicence.setFine(balance);
 
             // Save the updated entity
-            licenceService.save(theLicence);
+            liceService.save(theLicence);
 
             // Redirect to a success page or handle accordingly
             return "redirect:/confirmation";
