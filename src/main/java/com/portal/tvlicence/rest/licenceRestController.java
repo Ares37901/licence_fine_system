@@ -25,7 +25,7 @@ public class licenceRestController {
     }
 
     // add mapping for GET /licences/{licenceId}
-    @GetMapping("/licences/{licenceId}")
+    @GetMapping("/licence/{licenceId}")
     public Licence findById(@PathVariable int licenceId) {
         Licence theLicence = licenceService.findById(licenceId);
         if(theLicence == null) {
@@ -35,7 +35,7 @@ public class licenceRestController {
     }
 
     // add mapping for GET /fine/reference/{fineReference}
-    @GetMapping("/fine/reference/{fineReference}")
+    @GetMapping("/licence/reference/{fineReference}")
     public Licence findByReference(@PathVariable String reference) {
         Licence theLicence = licenceService.findByReference(reference);
         if(theLicence == null) {
@@ -60,7 +60,7 @@ public class licenceRestController {
         return dbLicence;
     }
 
-    @DeleteMapping("/licences/{licenceId}")
+    @DeleteMapping("/licence/{licenceId}")
     public String deleteLicence(@PathVariable int licenceId) {
         Licence tempLicence = licenceService.findById(licenceId);
         if(tempLicence == null) {

@@ -8,5 +8,6 @@ public interface licenceDAO {
     Licence findById(int theId);
     Licence findByReference(String theReference);
     Licence save(Licence theLicence);
+    Licence update(Licence theLicence);
     void deleteById(int theId);
 }
