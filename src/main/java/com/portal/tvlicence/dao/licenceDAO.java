@@ -1,7 +1,6 @@
 package com.portal.tvlicence.dao;
 
 import com.portal.tvlicence.entity.Licence;
-
 import java.util.List;
 
 public interface licenceDAO {

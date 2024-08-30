@@ -2,6 +2,7 @@ package com.portal.tvlicence.dao;
 
 import com.portal.tvlicence.entity.Licence;
 import jakarta.persistence.EntityManager;
+// import jakarta.persistence.Id;
 import jakarta.persistence.TypedQuery;
 import org.ietf.jgss.GSSName;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,17 +61,6 @@ public class licenceDAOJpaImpl implements licenceDAO {
         return theLicence;
     }
 
-//        if(Objects.equals(theLicence.getHouse(), house) && Objects.equals(theLicence.getStreet(), street) &&
-//                Objects.equals(theLicence.getCity(), city) && Objects.equals(theLicence.getPostcode(), postcode) &&
-//                Objects.equals(theLicence.getFirstName(), name) && Objects.equals(theLicence.getLastName(), surname))
-//        {
-//            return theLicence;
-//        } else { theLicence = null; return theLicence; }
-
-
-        //List<Licence> findBy Information(ref, house, street, city, postcode, name, Sname);
-    //     return theLicence;
-    //}
 
     @Override
     public Licence save(Licence theLicence) {
