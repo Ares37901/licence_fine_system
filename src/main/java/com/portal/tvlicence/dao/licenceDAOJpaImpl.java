@@ -4,7 +4,6 @@ import com.portal.tvlicence.entity.Licence;
 import jakarta.persistence.EntityManager;
 // import jakarta.persistence.Id;
 import jakarta.persistence.TypedQuery;
-import org.ietf.jgss.GSSName;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -64,6 +63,15 @@ public class licenceDAOJpaImpl implements licenceDAO {
 
     @Override
     public Licence save(Licence theLicence) {
+        // save the licence
+        Licence dbLicence = entityManager.merge(theLicence);
+
+        // return the dbLicence
+        return dbLicence;
+    }
+
+    @Override
+    public Licence update(Licence theLicence) {
         // save the licence
         Licence dbLicence = entityManager.merge(theLicence);
 
