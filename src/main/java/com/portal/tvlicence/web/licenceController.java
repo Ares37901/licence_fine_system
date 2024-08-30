@@ -24,6 +24,22 @@ public class licenceController {
 
 		return "main";
 	}
+
+	@GetMapping("/inputdetails")
+	public String isInput(Model theModel) {
+
+		theModel.addAttribute("theDate", new java.util.Date());
+
+		return "inputdetails";
+	}
+
+	@GetMapping("/payment")
+	public String isPayment(Model theModel) {
+
+		theModel.addAttribute("theDate", new java.util.Date());
+
+		return "payment";
+	}
 }
 
 
