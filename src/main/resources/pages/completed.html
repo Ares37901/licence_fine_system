@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>Pay your TV Licence</title>
+        <link rel="icon" type="image/x-icon" href="../licence%202/src/main/resources/media/favicon.ico">
+        <link rel="stylesheet" href="style.css">
+        <script type="text/javascript" src="script.js"></script>  
+    </head>
+    <body>
+        <h1>Pay your TV Licence</h1>
+        <select name="language" id="language">
+            <option value="English" selected>English</option>
+            <option value="Welsh">Cymraeg</option>
+        </select>
+        <br />
+        <br />
+        <label class="toggle"><span class="togglebox"><input type="checkbox" id="darkModeToggle" onclick="darkModeToggle()"><span class="toggleswitch"></span></span>Dark Mode<br /></label>
+        <label  class="toggle"><span class="togglebox"><input type="checkbox" id="largeFontToggle" onclick="largeTextToggle()"><span class="toggleswitch"></span></span>Large Font<br /></label>
+        <br />
+        <h2>Pay Online</h2>
+        <br />
+        <p>The fine has been sucessfully paid.</p>
+        <form action="email.html" method="post" target="main.html">
+        <input type="checkbox">Send receipt by email <br />
+        <br />
+        <input type="submit" value="Done">
+        </form>
+    </body>
+</html>

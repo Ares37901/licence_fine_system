@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>Pay your TV Licence</title>
+        <link rel="icon" type="image/x-icon" href="../licence%202/src/main/resources/media/favicon.ico">
+        <link rel="stylesheet" href="style.css">
+        <script type="text/javascript" src="script.js"></script>  
+    </head>
+    <body>
+        <h1>Pay your TV Licence</h1>
+        <select name="language" id="language">
+            <option value="English" selected>English</option>
+            <option value="Welsh">Cymraeg</option>
+        </select>
+        <br />
+        <br />
+        <label class="toggle"><span class="togglebox"><input type="checkbox" id="darkModeToggle" onclick="darkModeToggle()"><span class="toggleswitch"></span></span>Dark Mode<br /></label>
+        <label  class="toggle"><span class="togglebox"><input type="checkbox" id="largeFontToggle" onclick="largeTextToggle()"><span class="toggleswitch"></span></span>Large Font<br /></label>
+        <br />
+        <h2>Pay Online</h2>
+        <br />
+        <form action="completed.html" method="post" target="completed.html">
+        <table>
+            <tr><td>Cardholder Name:</td><td><input type="text"></td></tr>
+            <tr><td>Credit/Debit card number:</td><td><input type="text"></td></tr>
+            <tr><td>Security code:</td><td><input type="text" size="3"></td></tr>
+            <tr><td>Expiry date:</td><td><input type="text" size="2"> / <input type="text" size="2"></td></tr>
+            <tr><td colspan="2"><hr></td></tr>
+            <tr><th colspan="2">Billing Address Details</th></tr>
+            <tr><td>House Number: </td><td><input type="text" size="6"></td></tr>
+            <tr><td>Street: </td><td><input type="text"></td></tr>
+            <tr><td>Town:</td><td><input type="text"></td></tr>
+            <tr><td>Postcode:</td><td><input type="text" size="8"></td></tr>
+            <tr><td colspan="2"><hr></td></tr>
+        </table>
+        <input type="submit" value="Pay fine">
+        </form>
+
+    </body>
+<html>

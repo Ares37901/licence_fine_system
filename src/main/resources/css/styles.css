@@ -1,4 +1,44 @@
-.notice {
+/*.notice {
     font-style: italic;
     color: blue;
+}*/
+
+table{
+    color:inherit;
+    font-size: inherit;
+   }
+.toggle{
+    user-select: none;
+    font-size:x-large;
+}
+.toggle input{
+    display:none;
+}
+.togglebox{
+    display:inline-block;
+    width: 50px;
+    height:25px;
+    background-color:darkgrey;
+    border-radius: 50%;
+}
+
+.toggleswitch{
+    border-radius:50%;
+    display:inline-block;
+    position:relative;
+    background-color: lightgray;
+    width:25px;
+    height:25px;
+}/*
+.toggleswitch:before{
+    border-radius:50%;
+    display:inline-block;
+    position:relative;
+    background-color: gray;
+    width:25px;
+    height:25px;
+    left:25px;
+}*/
+input:checked + .toggleswitch:before{
+    transform:translateX(25px);
 }
