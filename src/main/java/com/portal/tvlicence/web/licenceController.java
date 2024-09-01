@@ -58,7 +58,12 @@ public class licenceController {
 		if (theLicence != null) {
 			FineAmountDTO populatedDTO = new FineAmountDTO();
 			populatedDTO.setReference(theLicence.getReference());
-			populatedDTO.setAmount(theLicence.getFine());
+			populatedDTO.setFirstName(theLicence.getFirstName());
+			populatedDTO.setLastName(theLicence.getLastName());
+			populatedDTO.setHouse(theLicence.getHouse());
+			populatedDTO.setStreet(theLicence.getStreet());
+			populatedDTO.setCity(theLicence.getCity());
+			populatedDTO.setPostcode(theLicence.getPostcode());
 			model.addAttribute("fineAmountDTO", populatedDTO);
 
 			return "fine-form";
