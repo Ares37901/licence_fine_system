@@ -20,9 +20,8 @@
         <h2>Pay Online</h2>
         <br />
         <form action="payment" method="post" target="payment">
-        <form th:object="${licence}" th:action="@{/updateAmount}" method="post">
         <table>
-            <tr><td>Reference:</td><td><input  id="reference" th:field="*{reference}" placeholder="reference"></tr></td></tr>
+            <tr><td>Reference:</td><td><input type="text" size="12"></tr></td></tr>
             <tr><td>First Name:</td><td><input type="text"></td></tr>
             <tr><td>Surname:</td><td><input type="text"></td></tr>
             <tr><td>Address:</td><td><hr></td></tr>
@@ -34,7 +33,7 @@
             
         </table>
         <br />
-        <input type="submit" value="Search for fine.">
+        <input type="submit" value="Continue to payment">
     </form>
     </body>
 </html>
