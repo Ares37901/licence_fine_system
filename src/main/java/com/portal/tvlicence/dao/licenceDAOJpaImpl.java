@@ -27,7 +27,7 @@ public class licenceDAOJpaImpl implements licenceDAO {
 
         // create a query
         TypedQuery<Licence> theQuery = entityManager.createQuery(
-                "SELECT e FROM licence-fee e", Licence.class
+                "SELECT e FROM licence_directory.licence_fine e", Licence.class
         );
         // execute the query
         List<Licence> licences = theQuery.getResultList();

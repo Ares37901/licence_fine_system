@@ -14,29 +14,30 @@ public class licenceController {
 
 	// create a mapping for "/hello"
 
-	@GetMapping("/main")
-	public String isMain(Model theModel) {
+	@GetMapping("/")
+	public String isMain(Model model) {
 		return "main";
 	}
 
-	@PostMapping("/inputdetails")
-	public String isInput(Model theModel) {
+	@GetMapping("/inputdetails")
+	public String isInput(Model model) {
+		model.addAttribute("fine", new FineAmountDTO());
 		return "inputdetails";
 	}
 
 
 	@GetMapping("/pullinfo")
-	public String isFound(Model theModel) {
+	public String isFound(Model model) {
 		return "pullinfo";
 	}
 
 	@PostMapping("/payment")
-	public String isPayment(Model theModel) {
+	public String isPayment(Model model) {
 		return "payment";
 	}
 
 	@PostMapping("/completed")
-	public String isCompleted(Model theModel) {
+	public String isCompleted(Model model) {
 		return "completed";
 	}
 
@@ -70,6 +71,8 @@ public class licenceController {
 			return "inputdetails";
 		}
 	}
+
+
 }
 
 

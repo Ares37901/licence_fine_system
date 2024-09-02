@@ -8,7 +8,6 @@
     </head>
     <body onload="loadSettings()">
         <h1>Pay your TV Licence</h1>
-        <form th:object="${fine}" th:action="@{/inputdetails}" method="post">
         <select name="language" id="language">
             <option value="English" selected>English</option>
             <option value="Welsh">Cymraeg</option>
@@ -26,7 +25,6 @@
             Darlington<br />
             DL98 1TL<br />
             <br />
-            <input type="submit" value="Pay Online.">
-        </form>
+        <a href="/inputdetails">Pay Online.</a>
     </body>
 </html>
