@@ -74,3 +74,11 @@ function setLargeText(on)
         largeText=false;
     }
 }
+function validateFields()
+{
+
+}
+function validateForm()
+{
+
+}
