@@ -24,7 +24,7 @@ function loadSettings()
         }
     }
     //add event listeners for input boxes
-    document.getElementById("dark").onclick = darkModeToggle;
+    document.getElementById("postcode").onblur = validateFields;
 }
 
 function darkModeToggle()
@@ -76,9 +76,20 @@ function setLargeText(on)
 }
 function validateFields()
 {
-
+    var noErrors =true;
+    //check postcode
+    if(!(/^([A-Za-z][A-Ha-hJ-Yj-y]?[0-9][A-Za-z0-9]? ?[0-9][A-Za-z]{2}|[Gg][Ii][Rr] ?0[Aa]{2})$/.test(document.getElementById("postcode").value)))
+    {
+        noErrors = false;
+        document.getElementById("postCodeErrorText").innerHTML = "Error in postcode.";
+    }
+    else
+    {
+        document.getElementById("postCodeErrorText").innerHTML = "";
+    }
+    return noErrors;
 }
 function validateForm()
 {
-
+    return validateFields();
 }

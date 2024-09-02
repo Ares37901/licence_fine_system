@@ -42,3 +42,7 @@ table{
 input:checked + .toggleswitch:before{
     transform:translateX(25px);
 }
+.errorText{
+    color:red;
+    font-weight: bold;
+}
