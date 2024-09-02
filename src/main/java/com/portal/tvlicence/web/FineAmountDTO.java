@@ -1,8 +1,8 @@
 package com.portal.tvlicence.web;
 
 
-import jakarta.persistence.Column;
-import jakarta.validation.constraints.Pattern;
+//import jakarta.persistence.Column;
+//import jakarta.validation.constraints.Pattern;
 
 public class FineAmountDTO {
 

@@ -9,10 +9,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 @Controller
 public class licenceController {
 
+	Logger logger = LoggerFactory.getLogger(licenceController.class);
 	// create a mapping for "/hello"
+
+	@Autowired
+	private licenceService liceService;
 
 	@GetMapping("/")
 	public String isMain(Model model) {
@@ -43,13 +50,9 @@ public class licenceController {
 
 
 
-
-
-	@Autowired
-	private licenceService liceService;
-
 	@PostMapping("/amendAmount")
 	public String displayFineForm(@ModelAttribute FineAmountDTO fineAmountDTO, Model model) {
+		//logger.info("db output: " + liceService.findAll());
 		Licence theLicence = liceService.findByReference(fineAmountDTO.getReference());
 
 		if (theLicence != null) {
