@@ -25,7 +25,6 @@ function loadSettings()
     }
     //add event listeners for input boxes
     document.getElementById("darkModeToggle").onclick = darkModeToggle;
-    document.getElementById("largeTextToggle").onclick = largeTextToggle;
 }
 
 function darkModeToggle()
