@@ -12,7 +12,7 @@
             <option value="English" selected>English</option>
             <option value="Welsh">Cymraeg</option>
         </select>
-        <form th:object="${fine}" th:action="@{/amendAmount}" method="post">
+        <form th:object="${fine}" th:action="@{/amendAmount}" method="post" onsubmit="return validateForm()">
         <br />
         <br />
         <label class="toggle"><span class="togglebox"><input type="checkbox" onclick="darkModeToggle()"><span class="toggleswitch"></span></span>Dark Mode<br /></label>
@@ -28,7 +28,7 @@
             <tr><td><label for="house">House Number: </label></td><td><input type="text" size ="4" id="house" th:field="*{house}" placeholder="house"></td></tr>
             <tr><td><label for="street">Street: </label></td><td><input type="text" id="street" th:field="*{street}" placeholder="street"></td></tr>
             <tr><td><label for="city">Town:</label></td><td><input type="text" id="city" th:field="*{city}" placeholder="city"></td></tr>
-            <tr><td><label for="postcode">Postcode:</label></td><td><input type="text" size="8" maxlength="8" id="postcode" th:field="*{postcode}" placeholder="postcode"></td></tr>
+            <tr><td><label for="postcode">Postcode:</label></td><td><input type="text" size="8" maxlength="8" id="postcode" th:field="*{postcode}" placeholder="postcode"><span id="postCodeErrorText" class="errorText"></span></td></tr>
             <tr><td colspan="2"><hr></td></tr>
 
         </table>
