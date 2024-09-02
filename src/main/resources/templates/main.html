@@ -4,20 +4,19 @@
         <title>Pay your TV Licence</title>
         <link rel="icon" type="image/x-icon" href="favicon.ico">
         <link rel="stylesheet" href="/css/style.css">
-        <link rel="stylesheet" href="/css/buttons.css">
         <script type="text/javascript" src="/script/script.js"></script>
     </head>
     <body onload="loadSettings()">
         <h1>Pay your TV Licence</h1>
-        <form th:object="${accCont}" th:action="@{/inputdetails}" method="post">
+        <form th:object="${AccessibilityDTO}" th:action="@{/inputdetails}" method="post">
         <select name="language" id="language">
             <option value="English" selected>English</option>
             <option value="Welsh">Cymraeg</option>
         </select>
         <br />
         <br />
-        <label class="toggle" for="dark"><span class="togglebox"><input type="checkbox" id="dark" onclick="darkModeToggle()"><span class="toggleswitch"></span></span>Dark Mode<br /></label>
-        <label  class="toggle" for="large"><span class="togglebox"><input type="checkbox" id="large" onclick="largeTextToggle()"><span class="toggleswitch"></span></span>Large Font<br /></label>
+        <label class="toggle"><span class="togglebox"><input type="checkbox" onclick="darkModeToggle()"><span class="toggleswitch"></span></span>Dark Mode<br /></label>
+        <label  class="toggle"><span class="togglebox"><input type="checkbox" onclick="largeTextToggle()"><span class="toggleswitch"></span></span>Large Font<br /></label>
         <br />
             Contact us by phone: <b>0300 555 0286</b><br />
             <br />

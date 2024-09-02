@@ -6,7 +6,7 @@ public class AccessibilityDTO {
     private boolean dark;
     private boolean large;
 
-// getters and setters
+
     public boolean getDark() {
         return dark;
     }
@@ -28,5 +28,5 @@ public class AccessibilityDTO {
 
     }
 
-}
+} // working
 
