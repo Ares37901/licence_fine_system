@@ -1,5 +1,6 @@
 var darkMode = false;
 var largeText = false;
+var twoDigitYear = new Date().getFullYear().toString().substr(-2);
 
 function loadSettings()
 {
@@ -25,6 +26,8 @@ function loadSettings()
     }
     //add event listeners for input boxes
     document.getElementById("postcode").onblur = validateFields;
+    document.getElementById("expiryDateFirstPart").onblur = validateFields;
+    document.getElementById("expiryDateSecondPart").onblur = validateFields;
 }
 
 function darkModeToggle()
@@ -87,6 +90,19 @@ function validateFields()
     {
         document.getElementById("postCodeErrorText").innerHTML = "";
     }
+    //check expiry date
+    var expiryFirstPart = parseInt(document.getElementById("expiryDateFirstPart"));
+    var expirySecondPart = parseInt(document.getElementById("expiryDateSecondPart"));
+    if(expiryFirstPart <1 || expiryFirstPart >12 || expirySecondPart < twoDigitYear)
+    {
+        noErrors = false;
+        document.getElementById("expiryDateErrorText").innerHTML = "Expiry date of of bounds.";
+    }
+    else
+    {
+        document.getElementById("expiryDateErrorText").innerHTML = "";
+    }
+
     return noErrors;
 }
 function validateForm()
