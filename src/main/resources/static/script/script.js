@@ -6,7 +6,7 @@ function loadSettings()
     var keyValuePairs = document.cookie.split(';');
     for(var i=0;i<keyValuePairs.length;i++){
         var keyAndValue = keyValuePairs[i].split('=');
-        if(keyAndValue[0] == "darkMode"){
+        if(keyAndValue[0].trim() == "darkMode"){
             if(keyAndValue[1] == "true"){
                 setDarkMode(true);
             }
@@ -14,7 +14,7 @@ function loadSettings()
                 darkMode = false;
             }
         }
-        else if(keyAndValue[0] == "largeText"){
+        else if(keyAndValue[0].trim() == "largeText"){
             if(keyAndValue[1] == "true"){
                 setLargeText(true);
             }
@@ -24,8 +24,7 @@ function loadSettings()
         }
     }
     //add event listeners for input boxes
-    document.getElementById("darkModeToggle").onclick = darkModeToggle;
-    document.getElementById("largeTextToggle").onclick = largeTextToggle;
+    document.getElementById("dark").onclick = darkModeToggle;
 }
 
 function darkModeToggle()
