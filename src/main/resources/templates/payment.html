@@ -22,7 +22,7 @@
         <form action="completed" method="post" target="completed" onsubmit="return validateForm()">
         <table>
             <tr><td>Cardholder Name:</td><td><input type="text"></td></tr>
-            <tr><td>Credit/Debit card number:</td><td><input type="text"></td></tr>
+            <tr><td>Credit/Debit card number:</td><td><input type="text" size="19" maxlength="19" id="creditCardNumber"></td></tr>
             <tr><td>Security code:</td><td><input type="text" size="3"></td></tr>
             <tr><td>Expiry date:</td><td><input type="text" size="2" maxlength = "2" id="expiryDateFirstPart"> / <input type="text" size="2" maxlength = "2" id="expiryDateSecondPart"><span id="expiryDateErrorText" class="errorText"></span></td></tr>
             <tr><td colspan="2"><hr></td></tr>

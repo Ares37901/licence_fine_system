@@ -46,3 +46,10 @@ input:checked + .toggleswitch:before{
     color:red;
     font-weight: bold;
 }
+input[type=button], input[type=submit], .button{
+    color:white;
+    background-color:black;
+    border: 2px solid white;
+    text-decoration: none;
+    padding: 5px;
+}
