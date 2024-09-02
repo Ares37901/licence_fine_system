@@ -20,8 +20,11 @@ public class licenceController {
 	}
 
 	@PostMapping("/inputdetails")
-	public String isInput(@ModelAttribute accessibilityDTO accCont, Model model) {
-
+	public String isInput(@ModelAttribute AccessibilityDTO accCont, Model model) {
+		AccessibilityDTO accContent = new AccessibilityDTO();
+		accContent.setDark(accCont.isDark());
+		accContent.setLarge(accCont.isLarge());
+		model.addAttribute("accessibilityDTO", accContent);
 		return "inputdetails";
 	}
 
