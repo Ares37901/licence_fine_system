@@ -15,8 +15,8 @@
         </select>
         <br />
         <br />
-        <label class="toggle"><span class="togglebox"><input type="checkbox" id="darkModeToggle" onclick="darkModeToggle()"><span class="toggleswitch"></span></span>Dark Mode<br /></label>
-        <label  class="toggle"><span class="togglebox"><input type="checkbox" id="largeFontToggle" onclick="largeTextToggle()"><span class="toggleswitch"></span></span>Large Font<br /></label>
+        <label class="toggle" for="dark"><span class="togglebox"><input type="checkbox" id="dark" th:field="*{dark}" onclick="darkModeToggle()"><span class="toggleswitch"></span></span>Dark Mode<br /></label>
+        <label  class="toggle" for="large"><span class="togglebox"><input type="checkbox" id="large" th:field="*{large}" onclick="largeTextToggle()"><span class="toggleswitch"></span></span>Large Font<br /></label>
         <br />
             Contact us by phone: <b>0300 555 0286</b><br />
             <br />
