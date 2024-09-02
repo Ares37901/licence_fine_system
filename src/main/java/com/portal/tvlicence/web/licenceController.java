@@ -22,8 +22,8 @@ public class licenceController {
 	@PostMapping("/inputdetails")
 	public String isInput(@ModelAttribute AccessibilityDTO accCont, Model model) {
 		AccessibilityDTO accContent = new AccessibilityDTO();
-		accContent.setDark(accCont.isDark());
-		accContent.setLarge(accCont.isLarge());
+		accContent.setDark(accCont.getDark());
+		accContent.setLarge(accCont.getLarge());
 		model.addAttribute("accessibilityDTO", accContent);
 		return "inputdetails";
 	}
