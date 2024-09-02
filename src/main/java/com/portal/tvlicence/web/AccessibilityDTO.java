@@ -1,13 +1,13 @@
 package com.portal.tvlicence.web;
 
 
-public class accessibilityDTO {
+public class AccessibilityDTO {
 
     private boolean dark;
     private boolean large;
 
-
-    public boolean isDark() {
+// getters and setters
+    public boolean getDark() {
         return dark;
     }
 
@@ -15,7 +15,7 @@ public class accessibilityDTO {
         this.dark = dark;
     }
 
-    public boolean isLarge() {
+    public boolean getLarge() {
         return large;
     }
 
@@ -24,7 +24,7 @@ public class accessibilityDTO {
     }
 
     // Default constructor is needed for JSON parsing
-    public accessibilityDTO() {
+    public AccessibilityDTO() {
 
     }
 
