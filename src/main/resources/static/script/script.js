@@ -23,6 +23,8 @@ function loadSettings()
             }
         }
     }
+    //add event listeners for input boxes
+
 }
 
 function darkModeToggle()
