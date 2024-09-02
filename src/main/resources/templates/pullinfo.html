@@ -7,8 +7,32 @@
         <script type="text/javascript" src="/script/script.js"></script>
     </head>
     <body onload="loadSettings()">
-        <h1>Pay your TV Licence</h1>
-        <form action="payment" method="post" target="payment">
+    <div th:insert="fragments/header :: header"></div>
+
+    <h2>Pay your TV Licence</h2>
+<!--        <form th:object="${fineAmountDTO}" th:action="@{/updateAmount}" method="post">-->
+<!--            <div>-->
+<!--                <label for="reference">Reference:</label>-->
+<!--                <input id="reference" th:field="*{reference}" placeholder="reference"/>-->
+<!--            </div>-->
+<!--            <div>-->
+<!--                <label for="postcode">Postcode:</label>-->
+<!--                <input id="postcode" th:field="*{postcode}" placeholder="postcode"/>-->
+<!--            </div>-->
+<!--            <div>-->
+<!--                <label for="fine">Amount:</label>-->
+<!--                <input type="text" id="fine" th:field="*{fine}" placeholder="fine"/>-->
+<!--            </div>-->
+<!--            <div>-->
+<!--                <button type="submit">Submit</button>-->
+<!--            </div>-->
+<!--        </form>-->
+
+
+
+
+
+        <form th:object="${fineAmountDTO}" th:action="@{/payment}" method="post" target="payment">
             <select name="language" id="language">
                 <option value="English" selected>English</option>
                 <option value="Welsh">Cymraeg</option>
@@ -17,24 +41,47 @@
             <br />
             <label class="toggle"><span class="togglebox"><input type="checkbox" id="darkModeToggle" onclick="darkModeToggle()"><span class="toggleswitch"></span></span>Dark Mode<br /></label>
             <label  class="toggle"><span class="togglebox"><input type="checkbox" id="largeFontToggle" onclick="largeTextToggle()"><span class="toggleswitch"></span></span>Large Font<br /></label>
+
+
+
             <br />
             <h2>Pay Online</h2>
-            <br />
-            <table>
-                <tr><td><label for="reference">Reference:</label></td><td><span id="reference" th:field="*{reference}" placeholder="reference"></span></td></tr>
-                <tr><td><label for="firstName">First Name:</label></td><td><span id="firstName" th:field="*{firstName}" placeholder="firstName"></span></td></tr>
-                <tr><td><label for="lastName">Surname:</label></td><td><span id="lastName" th:field="*{lastName}" placeholder="lastName"></span></td></tr>
-                <tr><td>Address:</td><td><hr></td></tr>
-                <tr><td><label for="house">House Number: </label></td><td><span id="house" th:field="*{house}" placeholder="house"></span></td></tr>
-                <tr><td><label for="street">Street: </label></td><td><span id="street" th:field="*{street}" placeholder="street"></span></td></tr>
-                <tr><td><label for="city">Town:</label></td><td><span id="city" th:field="*{city}" placeholder="city"></span></td></tr>
-                <tr><td><label for="postcode">Postcode:</label></td><td><span id="postcode" th:field="*{postcode}" placeholder="postcode"></span></td></tr>
-                <tr><td><label for="amount">Postcode:</label></td><td><span id="amount" th:field="*{amount}" placeholder="amount"></span></td></tr>
-                <tr><td colspan="2"><hr></td></tr>
+            <p>Your reference is <span th:text="*{reference}" /></p>
+            <p th:text="'Number '+*{house}+' '+*{postcode}" /></p>
 
-            </table>
-            <br />
-            <input type="submit" value="Continue to payment">
+            <!--            <div>-->
+<!--                <label for="reference">Reference:</label>-->
+<!--                <input id="reference" th:field="*{reference}" placeholder="reference"/>-->
+<!--            </div>-->
+<!--            <div>-->
+<!--                <label for="postcode">Postcode:</label>-->
+<!--                <input id="postcode" th:field="*{postcode}" placeholder="postcode"/>-->
+<!--            </div>-->
+            <div>
+                <label for="fine">Amount:</label>
+                <input type="text" id="fine" th:field="*{fine}" placeholder="fine"/>
+            </div>
+            <div>
+                <input type="submit" value="Continue to payment">
+            </div>
+
+<!--            <br />-->
+<!--            <table>-->
+<!--                <tr><td><label for="reference">Reference:</label></td><td><span id="reference" th:field="*{reference}" placeholder="reference"></span></td></tr>-->
+<!--                <tr><td><label for="firstName">First Name:</label></td><td><span id="firstName" th:field="*{firstName}" placeholder="firstName"></span></td></tr>-->
+<!--                <tr><td><label for="lastName">Surname:</label></td><td><span id="lastName" th:field="*{lastName}" placeholder="lastName"></span></td></tr>-->
+<!--                <tr><td>Address:</td><td><hr></td></tr>-->
+<!--                <tr><td><label for="house">House Number: </label></td><td><span id="house" th:field="*{house}" placeholder="house"></span></td></tr>-->
+<!--                <tr><td><label for="street">Street: </label></td><td><span id="street" th:field="*{street}" placeholder="street"></span></td></tr>-->
+<!--                <tr><td><label for="city">Town:</label></td><td><span id="city" th:field="*{city}" placeholder="city"></span></td></tr>-->
+<!--                <tr><td><label for="postcode">Postcode:</label></td><td><span id="postcode" th:field="*{postcode}" placeholder="postcode"></span></td></tr>-->
+<!--                <tr><td><label for="amount">Postcode:</label></td><td><span id="amount" th:field="*{amount}" placeholder="amount"></span></td></tr>-->
+<!--                <tr><td colspan="2"><hr></td></tr>-->
+
+<!--            </table>-->
+<!--            <br />-->
+<!--            <input type="submit" value="Continue to payment">-->
         </form>
+        <div th:insert="fragments/footer :: footer"></div>
     </body>
 </html>

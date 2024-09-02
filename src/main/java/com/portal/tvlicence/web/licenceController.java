@@ -56,19 +56,25 @@ public class licenceController {
 		Licence theLicence = liceService.findByReference(fineAmountDTO.getReference());
 
 		if (theLicence != null) {
-			FineAmountDTO populatedDTO = new FineAmountDTO();
-			populatedDTO.setReference(theLicence.getReference());
-			populatedDTO.setFirstName(theLicence.getFirstName());
-			populatedDTO.setLastName(theLicence.getLastName());
-			populatedDTO.setHouse(theLicence.getHouse());
-			populatedDTO.setStreet(theLicence.getStreet());
-			populatedDTO.setCity(theLicence.getCity());
-			populatedDTO.setPostcode(theLicence.getPostcode());
-			populatedDTO.setFine(theLicence.getFine());
-			populatedDTO.setEmail(theLicence.getEmail());
-			model.addAttribute("fineAmountDTO", populatedDTO);
+			if(theLicence.getHouse().equals(fineAmountDTO.getHouse())) {
+				FineAmountDTO populatedDTO = new FineAmountDTO();
+				populatedDTO.setReference(theLicence.getReference());
+//			populatedDTO.setFirstName(theLicence.getFirstName());
+//			populatedDTO.setLastName(theLicence.getLastName());
+				populatedDTO.setHouse(theLicence.getHouse());
+//			populatedDTO.setStreet(theLicence.getStreet());
+//			populatedDTO.setCity(theLicence.getCity());
+				populatedDTO.setPostcode(theLicence.getPostcode());
+				populatedDTO.setFine(theLicence.getFine());
+//			populatedDTO.setEmail(theLicence.getEmail());
+				model.addAttribute("fineAmountDTO", populatedDTO);
 
-			return "pullinfo";
+				return "pullinfo";
+			}
+			else {
+				return "inputdetails";
+			}
+
 		} else {
 			// Handle case where fine is not found
 			return "inputdetails";

@@ -6,6 +6,7 @@ package com.portal.tvlicence.web;
 
 public class FineAmountDTO {
 
+    //private int id;
     private String reference;
     private String house;
     private String street;
