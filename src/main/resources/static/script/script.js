@@ -105,13 +105,19 @@ function validateFields()
         }
     }
     //check expiry date
-    var expiryFirstPart = parseInt(document.getElementById("expiryDateFirstPart"));
-    var expirySecondPart = parseInt(document.getElementById("expiryDateSecondPart"));
+
     if(expiryDateErrorText !==null){
-        if(expiryFirstPart <1 || expiryFirstPart >12 || expirySecondPart < twoDigitYear)
+        var expiryFirstPart = parseInt(document.getElementById("expiryDateFirstPart"));
+        var expirySecondPart = parseInt(document.getElementById("expiryDateSecondPart"));
+        if(Number.isNaN(expiryFirstPart) || Number.isNan(expirySecondPart))
         {
             noErrors = false;
-            expiryDateErrorText.innerHTML = "Expiry date of of bounds.";
+            expiryDateErrorText.innerHTML = "Expiry date is not a number.";
+        }
+        else if(expiryFirstPart <1 || expiryFirstPart >12 || expirySecondPart < twoDigitYear)
+        {
+            noErrors = false;
+            expiryDateErrorText.innerHTML = "Expiry date out of bounds.";
         }
         else
         {
