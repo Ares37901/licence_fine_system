@@ -27,7 +27,7 @@ public class licenceDAOJpaImpl implements licenceDAO {
 
         // create a query
         TypedQuery<Licence> theQuery = entityManager.createQuery(
-                "SELECT e FROM licence_directory.licence_fine e", Licence.class
+                "SELECT e FROM licence_fine e", Licence.class
         );
         // execute the query
         List<Licence> licences = theQuery.getResultList();
@@ -49,7 +49,7 @@ public class licenceDAOJpaImpl implements licenceDAO {
 
         // create a query
         TypedQuery<Licence> theQuery = entityManager.createQuery(
-                "SELECT f FROM licence_fine f WHERE f.reference=:theReference", Licence.class
+                "SELECT f FROM Licence f WHERE f.reference=:theReference", Licence.class
         );
         theQuery.setParameter("theReference", theReference);
 

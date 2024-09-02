@@ -47,8 +47,9 @@ public class Licence {
 
     }
 
-    public Licence(String reference,String house, String street, String city, String postcode, double fine, String firstName, String lastName, String email) {
+    public Licence(int num,String reference,String house, String street, String city, String postcode, double fine, String firstName, String lastName, String email) {
 
+        this.id = num;
         this.reference = reference;
         this.house = house;
         this.street = street;
