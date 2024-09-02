@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="/css/style.css">
         <script type="text/javascript" src="/script/script.js"></script>
     </head>
-    <body>
+    <body onload="loadSettings()">
         <h1>Pay your TV Licence</h1>
         <form th:object="${accCont}" th:action="@{/inputdetails}" method="post">
         <select name="language" id="language">
