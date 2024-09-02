@@ -3,6 +3,7 @@ var largeText = false;
 var twoDigitYear = new Date().getFullYear().toString().substr(-2);
 var postCodeErrorText;
 var expiryDateErrorText;
+var creditCardErrorText;
 
 function loadSettings()
 {
@@ -29,6 +30,7 @@ function loadSettings()
     //add event listeners for input boxes
     postCodeErrorText = document.getElementById("postCodeErrorText");
     expiryDateErrorText = document.getElementById("expiryDateErrorText");
+    creditCardErrorText = document.getElementById("creditCardErrorText");
     if(postCodeErrorText !== null)
     {
         document.getElementById("postcode").onblur = validateFields;
@@ -37,6 +39,10 @@ function loadSettings()
     {
         document.getElementById("expiryDateFirstPart").onblur = validateFields;
         document.getElementById("expiryDateSecondPart").onblur = validateFields;
+    }
+    if(creditCardErrorText !== null)
+    {
+        document.getElementById("creditCardErrorText").onblur = validateFields;
     }
 
 }
@@ -107,8 +113,8 @@ function validateFields()
     //check expiry date
 
     if(expiryDateErrorText !==null){
-        var expiryFirstPart = parseInt(document.getElementById("expiryDateFirstPart"));
-        var expirySecondPart = parseInt(document.getElementById("expiryDateSecondPart"));
+        var expiryFirstPart = parseInt(document.getElementById("expiryDateFirstPart").value);
+        var expirySecondPart = parseInt(document.getElementById("expiryDateSecondPart").value);
         if(Number.isNaN(expiryFirstPart) || Number.isNan(expirySecondPart))
         {
             noErrors = false;
@@ -123,6 +129,17 @@ function validateFields()
         {
             expiryDateErrorText.innerHTML = "";
         }
+    }
+    //check credit/debit card
+    if(creditCardErrorText !== null){
+        var creditCardText = document.getElementById("creditCardErrorText").value.replaceAll(" ", "");
+        var creditCardNumbers = parseInt(creditCardText);
+        if(Number.isNaN(creditCardNumbers))
+        {
+            noErrors = false;
+            creditCardErrorText.innerHTML = "Credit card needs to be numbers only."
+        }
+
     }
 
     return noErrors;
