@@ -7,34 +7,28 @@
         <script type="text/javascript" src="/script/script.js"></script>
     </head>
     <body onload="loadSettings()">
-        <h1>Pay your TV Licence</h1>
-        <select name="language" id="language">
-            <option value="English" selected>English</option>
-            <option value="Welsh">Cymraeg</option>
-        </select>
-        <br />
-        <br />
-        <label class="toggle"><span class="togglebox"><input type="checkbox" id="darkModeToggle" onclick="darkModeToggle()"><span class="toggleswitch"></span></span>Dark Mode<br /></label>
-        <label  class="toggle"><span class="togglebox"><input type="checkbox" id="largeFontToggle" onclick="largeTextToggle()"><span class="toggleswitch"></span></span>Large Font<br /></label>
-        <br />
-        <h2>Pay Online</h2>
-        <br />
-        <form action="completed" method="post" target="completed" onsubmit="return validateForm()">
+    <div th:insert="fragments/header :: header"></div>
+
+        <form th:object="${finePaymentDTO}" th:action="@{/success}" method="post" target="completed" onsubmit="return validateForm()">
         <table>
-            <tr><td>Cardholder Name:</td><td><input type="text"></td></tr>
+            <tr>
+                <td>Cardholder Name:</td>
+                <td><input type="text"></td>
+            </tr>
             <tr><td>Credit/Debit card number:</td><td><input type="text" size="25" id="creditCardNumber"><span id="creditCardErrorText" class="errorText"></span></td></tr>
             <tr><td>Security code:</td><td><input type="text" size="3"></td></tr>
             <tr><td>Expiry date:</td><td><input type="text" size="2" maxlength = "2" id="expiryDateFirstPart"> / <input type="text" size="2" maxlength = "2" id="expiryDateSecondPart"><span id="expiryDateErrorText" class="errorText"></span></td></tr>
             <tr><td colspan="2"><hr></td></tr>
             <tr><th colspan="2">Billing Address Details</th></tr>
-            <tr><td>House Number: </td><td><input type="text" size="6"></td></tr>
-            <tr><td>Street: </td><td><input type="text"></td></tr>
-            <tr><td>Town:</td><td><input type="text"></td></tr>
-            <tr><td>Postcode:</td><td><input type="text" size="8" maxlength="8" id="postcode"><span id="postCodeErrorText" class="errorText"></span></td></tr>
+            <tr><td>House Number: <p th:text="*{house}" /></p> </td><td><input type="text" size="6" th:text="*{house}"></td></tr>
+            <tr><td>Street: </td><td><input type="text" th:text="*{street}"></td></tr>
+            <tr><td>Town:</td><td><input type="text" th:text="*{city}"></td></tr>
+            <tr><td>Postcode:</td><td><input type="text" size="8" maxlength="8" id="postcode" th:text="*{postcode}"><span id="postCodeErrorText" class="errorText"></span></td></tr>
             <tr><td colspan="2"><hr></td></tr>
         </table>
         <input type="submit" value="Pay fine">
         </form>
 
+        <div th:insert="fragments/footer :: footer"></div>
     </body>
 <html>

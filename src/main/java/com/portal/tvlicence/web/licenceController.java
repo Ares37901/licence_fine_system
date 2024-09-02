@@ -26,26 +26,38 @@ public class licenceController {
 		return "main";
 	}
 
+	@GetMapping("/_error")
+	public String isError(Model model) {
+		return "_error";
+	}
+
 	@GetMapping("/inputdetails")
 	public String isInput(Model model) {
 		model.addAttribute("fine", new FineAmountDTO());
 		return "inputdetails";
 	}
 
-
-	@GetMapping("/pullinfo")
-	public String isFound(Model model) {
-		return "pullinfo";
-	}
-
 	@PostMapping("/payment")
-	public String isPayment(Model model) {
-		return "payment";
+	public String isPayment(@ModelAttribute FineAmountDTO fineAmountDTO, Model model) {
+		FineAmountDTO populatedDTO = new FineAmountDTO();
+
+		populatedDTO.setReference(fineAmountDTO.getReference());
+		populatedDTO.setFirstName(fineAmountDTO.getFirstName());
+		populatedDTO.setLastName(fineAmountDTO.getLastName());
+		populatedDTO.setHouse(fineAmountDTO.getHouse());
+		populatedDTO.setStreet(fineAmountDTO.getStreet());
+		populatedDTO.setCity(fineAmountDTO.getCity());
+		populatedDTO.setPostcode(fineAmountDTO.getPostcode());
+		populatedDTO.setFine(fineAmountDTO.getFine());
+		populatedDTO.setEmail(fineAmountDTO.getEmail());
+
+		model.addAttribute("finePaymentDTO", populatedDTO);
+			return "payment";
 	}
 
-	@PostMapping("/completed")
+	@PostMapping("/success")
 	public String isCompleted(Model model) {
-		return "completed";
+		return "success";
 	}
 
 
@@ -56,28 +68,35 @@ public class licenceController {
 		Licence theLicence = liceService.findByReference(fineAmountDTO.getReference());
 
 		if (theLicence != null) {
-			if(theLicence.getHouse().equals(fineAmountDTO.getHouse())) {
+			if(
+					theLicence.getFirstName().equals(fineAmountDTO.getFirstName()) &&
+					theLicence.getLastName().equals(fineAmountDTO.getLastName()) &&
+					theLicence.getHouse().equals(fineAmountDTO.getHouse()) &&
+					theLicence.getStreet().equals(fineAmountDTO.getStreet()) &&
+					theLicence.getCity().equals(fineAmountDTO.getCity()) &&
+					theLicence.getPostcode().equals(fineAmountDTO.getPostcode())
+			) {
 				FineAmountDTO populatedDTO = new FineAmountDTO();
 				populatedDTO.setReference(theLicence.getReference());
-//			populatedDTO.setFirstName(theLicence.getFirstName());
-//			populatedDTO.setLastName(theLicence.getLastName());
+			populatedDTO.setFirstName(theLicence.getFirstName());
+			populatedDTO.setLastName(theLicence.getLastName());
 				populatedDTO.setHouse(theLicence.getHouse());
-//			populatedDTO.setStreet(theLicence.getStreet());
-//			populatedDTO.setCity(theLicence.getCity());
+			populatedDTO.setStreet(theLicence.getStreet());
+			populatedDTO.setCity(theLicence.getCity());
 				populatedDTO.setPostcode(theLicence.getPostcode());
 				populatedDTO.setFine(theLicence.getFine());
-//			populatedDTO.setEmail(theLicence.getEmail());
+			populatedDTO.setEmail(theLicence.getEmail());
 				model.addAttribute("fineAmountDTO", populatedDTO);
 
 				return "pullinfo";
 			}
 			else {
-				return "inputdetails";
+				return "_error";
 			}
 
 		} else {
 			// Handle case where fine is not found
-			return "inputdetails";
+			return "_error2";
 		}
 	}
 

@@ -7,16 +7,9 @@
         <script type="text/javascript" src="/script/script.js"></script>
     </head>
     <body onload="loadSettings()">
-        <h1>Pay your TV Licence</h1>
-        <select name="language" id="language">
-            <option value="English" selected>English</option>
-            <option value="Welsh">Cymraeg</option>
-        </select>
-        <br />
-        <br />
-        <label class="toggle"><span class="togglebox"><input type="checkbox" onclick="darkModeToggle()"><span class="toggleswitch"></span></span>Dark Mode<br /></label>
-        <label  class="toggle"><span class="togglebox"><input type="checkbox" onclick="largeTextToggle()"><span class="toggleswitch"></span></span>Large Font<br /></label>
-        <br />
+    <div th:insert="fragments/header :: header"></div>
+
+    <br />
             Contact us by phone: <b>0300 555 0286</b><br />
             <br />
             Can be paid by sending a cheque made payable to TV Licencing to the address: <br />
@@ -26,5 +19,7 @@
             DL98 1TL<br />
             <br />
         <a href="/inputdetails" class="button">Pay Online.</a>
+
+        <div th:insert="fragments/footer :: footer"></div>
     </body>
 </html>

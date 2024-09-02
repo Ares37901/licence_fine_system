@@ -1,12 +1,21 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Success!</title>
+    <p th:text="'Time on the server is ' + ${theDate}" class="funny" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="/css/style.css">
+    <script type="text/javascript" src="/script/script.js"></script>
 </head>
-<body>
-  <h1>Success</h1>
-  <p th:text="'Time on the server is ' + ${theDate}" class="funny" />
+<body onload="loadSettings()">
+<div th:insert="fragments/header :: header"></div>
 
+<br />
+Your fine has been paid.
+<br />
+<br />
+<a href="/" class="button">Return to homepage.</a>
+
+<div th:insert="fragments/footer :: footer"></div>
 </body>
 </html>
