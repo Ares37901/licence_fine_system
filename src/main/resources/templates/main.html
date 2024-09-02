@@ -8,7 +8,7 @@
     </head>
     <body onload="loadSettings()">
         <h1>Pay your TV Licence</h1>
-        <form th:object="${AccessibilityDTO}" th:action="@{/inputdetails}" method="post">
+        <form th:object="${fine}" th:action="@{/inputdetails}" method="post">
         <select name="language" id="language">
             <option value="English" selected>English</option>
             <option value="Welsh">Cymraeg</option>
