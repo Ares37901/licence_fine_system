@@ -20,8 +20,7 @@ public class licenceController {
 	}
 
 	@PostMapping("/inputdetails")
-	public String isInput(Model model) {
-
+	public String isInput(Model theModel) {
 		return "inputdetails";
 	}
 
