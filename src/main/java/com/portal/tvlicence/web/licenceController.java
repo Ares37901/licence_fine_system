@@ -16,31 +16,28 @@ public class licenceController {
 
 	@GetMapping("/main")
 	public String isMain(Model theModel) {
-
 		return "main";
 	}
 
-	@GetMapping("/inputdetails")
-	public String isInput(Model theModel) {
-
-//		theModel.addAttribute("theDate", new java.util.Date());
+	@PostMapping("/inputdetails")
+	public String isInput(@ModelAttribute accessibilityDTO accCont, Model model) {
 
 		return "inputdetails";
 	}
 
+
+	@GetMapping("/pullinfo")
+	public String isFound(Model theModel) {
+		return "pullinfo";
+	}
+
 	@PostMapping("/payment")
 	public String isPayment(Model theModel) {
-
-//		theModel.addAttribute("theDate", new java.util.Date());
-
 		return "payment";
 	}
 
 	@PostMapping("/completed")
 	public String isCompleted(Model theModel) {
-
-//		theModel.addAttribute("theDate", new java.util.Date());
-
 		return "completed";
 	}
 
@@ -64,12 +61,14 @@ public class licenceController {
 			populatedDTO.setStreet(theLicence.getStreet());
 			populatedDTO.setCity(theLicence.getCity());
 			populatedDTO.setPostcode(theLicence.getPostcode());
+			populatedDTO.setFine(theLicence.getFine());
+			populatedDTO.setEmail(theLicence.getEmail());
 			model.addAttribute("fineAmountDTO", populatedDTO);
 
-			return "fine-form";
+			return "pullinfo";
 		} else {
 			// Handle case where fine is not found
-			return "search";
+			return "inputdetails";
 		}
 	}
 }

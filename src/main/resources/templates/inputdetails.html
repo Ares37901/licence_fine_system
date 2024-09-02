@@ -19,8 +19,7 @@
         <br />
         <h2>Pay Online</h2>
         <br />
-        <form action="payment" method="post" target="payment">
-        <form th:object="${licence}" th:action="@{/updateAmount}" method="post">
+        <form th:object="${fineAmountDTO}" th:action="@{/updateAmount}" method="post">
         <table>
             <tr><td>Reference:</td><td><input  id="reference" th:field="*{reference}" placeholder="reference"></tr></td></tr>
             <tr><td>First Name:</td><td><input id="firstName" th:field="*{firstName}" placeholder="firstName"></td></tr>

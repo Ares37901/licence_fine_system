@@ -79,10 +79,10 @@ public class FineAmountDTO {
         this.email = email;
     }
 
-    public double getAmount() {
+    public double getFine() {
         return fine;
     }
-    public void setAmount(double amount) {
+    public void setFine(double amount) {
         this.fine = amount;
     }
 }

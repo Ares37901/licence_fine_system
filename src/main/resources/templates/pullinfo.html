@@ -21,14 +21,15 @@
         <br />
         <form action="payment" method="post" target="payment">
         <table>
-            <tr><td>Reference:</td><td><input type="text" size="12"></tr></td></tr>
-            <tr><td>First Name:</td><td><input type="text"></td></tr>
-            <tr><td>Surname:</td><td><input type="text"></td></tr>
+            <tr><td><label for="reference">Reference:</label></td><td><span id="reference" th:field="*{reference}" placeholder="reference"></span></td></tr>
+            <tr><td><label for="firstName">First Name:</label></td><td><span id="firstName" th:field="*{firstName}" placeholder="firstName"></span></td></tr>
+            <tr><td><label for="lastName">Surname:</label></td><td><span id="lastName" th:field="*{lastName}" placeholder="lastName"></span></td></tr>
             <tr><td>Address:</td><td><hr></td></tr>
-            <tr><td>House Number: </td><td><input type="text" size="6"></td></tr>
-            <tr><td>Street: </td><td><input type="text"></td></tr>
-            <tr><td>Town:</td><td><input type="text"></td></tr>
-            <tr><td>Postcode:</td><td><input type="text" size="8"></td></tr>
+            <tr><td><label for="house">House Number: </label></td><td><span id="house" th:field="*{house}" placeholder="house"></span></td></tr>
+            <tr><td><label for="street">Street: </label></td><td><span id="street" th:field="*{street}" placeholder="street"></span></td></tr>
+            <tr><td><label for="city">Town:</label></td><td><span id="city" th:field="*{city}" placeholder="city"></span></td></tr>
+            <tr><td><label for="postcode">Postcode:</label></td><td><span id="postcode" th:field="*{postcode}" placeholder="postcode"></span></td></tr>
+            <tr><td><label for="amount">Postcode:</label></td><td><span id="amount" th:field="*{amount}" placeholder="amount"></span></td></tr>
             <tr><td colspan="2"><hr></td></tr>
             
         </table>

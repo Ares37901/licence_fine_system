@@ -8,6 +8,7 @@
     </head>
     <body>
         <h1>Pay your TV Licence</h1>
+        <form th:object="${accCont}" th:action="@{/inputdetails}" method="post">
         <select name="language" id="language">
             <option value="English" selected>English</option>
             <option value="Welsh">Cymraeg</option>
@@ -17,14 +18,15 @@
         <label class="toggle"><span class="togglebox"><input type="checkbox" id="darkModeToggle" onclick="darkModeToggle()"><span class="toggleswitch"></span></span>Dark Mode<br /></label>
         <label  class="toggle"><span class="togglebox"><input type="checkbox" id="largeFontToggle" onclick="largeTextToggle()"><span class="toggleswitch"></span></span>Large Font<br /></label>
         <br />
-        Contact us by phone: <b>0300 555 0286</b><br />
-        <br />
-        Can be paid by sending a cheque made payable to TV Licencing to the address: <br />
-        <br />
-        TV Licensing<br />
-        Darlington<br />
-        DL98 1TL<br />
-        <br />
-        <a href="inputdetails">Pay Online</a>
+            Contact us by phone: <b>0300 555 0286</b><br />
+            <br />
+            Can be paid by sending a cheque made payablehhhhh to TV Licencing to the address: <br />
+            <br />
+            TV Licensing<br />
+            Darlington<br />
+            DL98 1TL<br />
+            <br />
+            <input type="submit" value="Pay Online.">
+        </form>
     </body>
 </html>
