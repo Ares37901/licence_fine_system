@@ -16,7 +16,7 @@
                 <td><input type="text" id="name" th:value="*{firstName} + ' ' + *{lastName}"></td>
             </tr>
             <tr><td>Credit/Debit card number:</td><td><input type="text" size="25" id="creditCardNumber"><span id="creditCardErrorText" class="errorText"></span></td></tr>
-            <tr><td>Security code:</td><td><input type="text" size="3"></td></tr>
+            <tr><td>Security code:</td><td><input type="text" size="3" id="securityCode"><span id="securityCodeErrorText" class="errorText"></span></td></tr>
             <tr><td>Expiry date:</td><td><input type="text" size="2" maxlength = "2" id="expiryDateFirstPart"> / <input type="text" size="2" maxlength = "2" id="expiryDateSecondPart"><span id="expiryDateErrorText" class="errorText"></span></td></tr>
             <tr><td colspan="2"><hr></td></tr>
             <tr><th colspan="2">Billing Address Details</th></tr>
@@ -25,7 +25,7 @@
             <tr><td>Town:</td><td><input type="text" id="city" th:value="*{city}"></td></tr>
             <tr><td>Postcode:</td><td><input type="text" size="8" maxlength="8" id="postcode" th:value="*{postcode}"><span id="postCodeErrorText" class="errorText"></span></td></tr>
             <tr><th colspan="2">Amount to pay off:</th></tr>
-            <tr><td>Amount:</td><td><input type="text" id="fine" th:field=*{fine} placeholder="£"></td></tr>
+            <tr><td>Amount:</td><td><input type="text" id="fine" th:field=*{fine} placeholder="£"><span id="fineErrorText" class="errorText"></span></td></tr>
             <tr><td colspan="2"><hr></td></tr>
         </table>
 
