@@ -26,9 +26,5 @@ CREATE TABLE `licence_fine` (
 --
 
 INSERT INTO `licence_fine` VALUES 
-	(1,'ABC12D456','13','Mucker Lane','Gotham','BT137FU','18000.5','Mickey','Longlegs','mlong@crooks.com'),
-	(2,'ABC12D457','33','Robery Street','Gotham','BT112FU','18000.5','Danny','Stickyfingers','dfishy@crooks.com'),
-	(3,'ABC12D458','7','Fallen Lane','Gotham','BT221FU','18000.5','Ronnie','Muckface','rface@crooks.com'),
-	(4,'ABC12D459','256','Canibal Way','Gotham','BT877FU','18000.5','Paddy','Cont','pcont@crooks.com'),
-	(5,'ABC12D460','77','Fishy Street','Gotham','BT666FU','18000.5','Manny','Longarms','manarms@crooks.com')
+	(1,'ABC12D456','13','Robbery Street','Gotham','BT137FU','18000','Mickey','Longlegs','mlong@crooks.com')
 
