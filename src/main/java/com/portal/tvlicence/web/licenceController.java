@@ -31,6 +31,12 @@ public class licenceController {
 		return "_error";
 	}
 
+	@GetMapping("/_error2")
+	public String isError2(Model model) {
+
+		return "_error2";
+	}
+
 	@GetMapping("/inputdetails")
 	public String isInput(Model model) {
 		model.addAttribute("fineAmountDTO", new FineAmountDTO());
@@ -56,7 +62,15 @@ public class licenceController {
 	public String displayFineForm(@ModelAttribute("fineAmountDTO") FineAmountDTO fineAmountDTO, Model model) {
 		logger.info("object output: " + fineAmountDTO.getReference() + fineAmountDTO.getCity() + fineAmountDTO.getFine());
 
-		Licence theLicence = liceService.findByReference(fineAmountDTO.getReference());
+		Licence theLicence = null;
+		try {
+			theLicence = liceService.findByReference(fineAmountDTO.getReference());
+		}
+		catch (Exception e){
+			logger.info(String.valueOf(e));
+
+			return "_error2";
+		}
 
 		if (theLicence != null) {
 			if(

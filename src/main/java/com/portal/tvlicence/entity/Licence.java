@@ -25,7 +25,6 @@ public class Licence {
     @Column(name="city")
     private String city;
 
-    //@Pattern(regexp = "^[A-Z]{1,2}[0-9R][0-9A-Z]? [0-9][ABD-HJLNP-UW-Z]{2}$", message = "not a valid UK post code")
     @Column(name="postcode")
     private String postcode;
 
