@@ -33,6 +33,7 @@ function loadSettings()
     creditCardErrorText = document.getElementById("creditCardErrorText");
     securityCodeErrorText = document.getElementById("securityCodeErrorText");
     fineErrorText = document.getElementById("fineErrorText");
+    referenceErrorText = document.getElementById("referenceErrorText");
 
     if(postCodeErrorText !== null)
     {
@@ -54,6 +55,10 @@ function loadSettings()
     if(fineErrorText !== null)
     {
         document.getElementById("fine").onblur = validateFields;
+    }
+    if(referenceErrorText !== null)
+    {
+        document.getElementById("reference").onblur = validateFields;
     }
 
 }
@@ -80,7 +85,7 @@ function setDarkMode(on)
 {
     if(on){
         document.body.style.color = "white";
-        document.body.style.backgroundColor = "black";
+        document.body.style.backgroundColor = "#202020";
         document.cookie="darkMode=true";
         darkMode=true;
     }
@@ -191,6 +196,20 @@ function validateFields()
         else
         {
             fineErrorText.innerHTML = "";
+        }
+    }
+
+    //check reference
+    if(referenceErrorText !== null){
+        var referenceText = document.getElementById("reference").value;
+        if(referenceText.length !== 9)
+        {
+            noErrors=false;
+            referenceErrorText.innerHTML = "Reference must be 9 letters long";
+        }
+        else
+        {
+            referenceErrorText.innerHTML = "";
         }
     }
 
