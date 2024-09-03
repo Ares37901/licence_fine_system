@@ -31,6 +31,9 @@ function loadSettings()
     postCodeErrorText = document.getElementById("postCodeErrorText");
     expiryDateErrorText = document.getElementById("expiryDateErrorText");
     creditCardErrorText = document.getElementById("creditCardErrorText");
+    securityCodeErrorText = document.getElementById("securityCodeErrorText");
+    fineErrorText = document.getElementById("fineErrorText");
+
     if(postCodeErrorText !== null)
     {
         document.getElementById("postcode").onblur = validateFields;
@@ -42,7 +45,15 @@ function loadSettings()
     }
     if(creditCardErrorText !== null)
     {
-        document.getElementById("creditCardErrorText").onblur = validateFields;
+        document.getElementById("creditCardNumber").onblur = validateFields;
+    }
+    if(securityCodeErrorText !== null)
+    {
+        document.getElementById("securityCode").onblur = validateFields;
+    }
+    if(fineErrorText !== null)
+    {
+        document.getElementById("fine").onblur = validateFields;
     }
 
 }
@@ -113,9 +124,11 @@ function validateFields()
     //check expiry date
 
     if(expiryDateErrorText !==null){
-        var expiryFirstPart = parseInt(document.getElementById("expiryDateFirstPart").value);
-        var expirySecondPart = parseInt(document.getElementById("expiryDateSecondPart").value);
-        if(Number.isNaN(expiryFirstPart) || Number.isNan(expirySecondPart))
+        var expiryFirstPartText = document.getElementById("expiryDateFirstPart").value;
+        var expiryFirstPart = parseInt(expiryFirstPartText);
+        var expirySecondPartText = document.getElementById("expiryDateSecondPart").value
+        var expirySecondPart = parseInt(expirySecondPartText);
+        if((!(/^\d+$/.test(expiryFirstPartText))) || (!(/^\d+$/.test(expirySecondPartText))))
         {
             noErrors = false;
             expiryDateErrorText.innerHTML = "Expiry date is not a number.";
@@ -132,14 +145,53 @@ function validateFields()
     }
     //check credit/debit card
     if(creditCardErrorText !== null){
-        var creditCardText = document.getElementById("creditCardErrorText").value.replaceAll(" ", "");
-        var creditCardNumbers = parseInt(creditCardText);
-        if(Number.isNaN(creditCardNumbers))
+        var creditCardText = document.getElementById("creditCardNumber").value.replaceAll(" ", "");
+        //var creditCardNumbers = parseInt(creditCardText);
+        if(!(/^\d+$/.test(creditCardText)))
         {
             noErrors = false;
             creditCardErrorText.innerHTML = "Credit card needs to be numbers only."
         }
+        else
+        {
+            creditCardErrorText.innerHTML = "";
+        }
 
+    }
+
+    //check security code
+    if(securityCodeErrorText !== null){
+        var securityCodeText = document.getElementById("securityCode").value;
+        if(!(/^\d+$/.test(securityCodeText)))
+        {
+            noErrors = false;
+            securityCodeErrorText.innerHTML = "Security code is not a number";
+        }
+        else if(securityCodeText.length !== 3)
+        {
+            noErrors = false;
+            securityCodeErrorText.innerHTML = "Security code must be three digits long";
+        }
+        else
+        {
+            securityCodeErrorText.innerHTML = "";
+        }
+
+    }
+
+    //check fine
+    if(fineErrorText !== null){
+        var fineText = document.getElementById("fine").value;
+        var fineNumbers = parseFloat(fineText);
+        if(Number.isNaN(fineNumbers) || (!(/^\d+\.?\d*$/.test(fineText))))
+        {
+            noErrors = false;
+            fineErrorText.innerHTML = "Amount must be a number";
+        }
+        else
+        {
+            fineErrorText.innerHTML = "";
+        }
     }
 
     return noErrors;
