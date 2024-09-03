@@ -9,17 +9,17 @@
     <body onload="loadSettings()">
     <div th:insert="fragments/header :: header"></div>
 
-        <form th:object="${fine}" th:action="@{/amendAmount}" method="post" onsubmit="return validateForm()">
+        <form th:action="@{/amendAmount}" method="post" th:object="${fineAmountDTO}" onsubmit="return validateForm()">
 
         <table>
-            <tr><td><label for="reference">Reference:</label></td><td><input type="text" id="reference" th:field="*{reference}" placeholder="reference"></td></tr>
-            <tr><td><label for="firstName">First Name:</label></td><td><input type="text" id="firstName" th:field="*{firstName}" placeholder="firstName"></td></tr>
-            <tr><td><label for="lastName">Surname:</label></td><td><input type="text" id="lastName" th:field="*{lastName}" placeholder="lastName"></td></tr>
+            <tr><td><label for="reference">Reference:</label></td><td><input type="text" id="reference" th:field="*{reference}" placeholder="Ref no"></td></tr>
+            <tr><td><label for="firstName">First Name:</label></td><td><input type="text" id="firstName" th:field="*{firstName}" placeholder="First Name"></td></tr>
+            <tr><td><label for="lastName">Surname:</label></td><td><input type="text" id="lastName" th:field="*{lastName}" placeholder="Last Name"></td></tr>
             <tr><td>Address:</td><td><hr></td></tr>
-            <tr><td><label for="house">House Number: </label></td><td><input type="text" size ="4" id="house" th:field="*{house}" placeholder="house"></td></tr>
-            <tr><td><label for="street">Street: </label></td><td><input type="text" id="street" th:field="*{street}" placeholder="street"></td></tr>
-            <tr><td><label for="city">Town:</label></td><td><input type="text" id="city" th:field="*{city}" placeholder="city"></td></tr>
-            <tr><td><label for="postcode">Postcode:</label></td><td><input type="text" size="8" maxlength="8" id="postcode" th:field="*{postcode}" placeholder="postcode"><span id="postCodeErrorText" class="errorText"></span></td></tr>
+            <tr><td><label for="house">House Number: </label></td><td><input type="text" size ="4" id="house" th:field="*{house}" placeholder="House no"></td></tr>
+            <tr><td><label for="street">Street: </label></td><td><input type="text" id="street" th:field="*{street}" placeholder="Street"></td></tr>
+            <tr><td><label for="city">Town:</label></td><td><input type="text" id="city" th:field="*{city}" placeholder="City/Town"></td></tr>
+            <tr><td><label for="postcode">Postcode:</label></td><td><input type="text" size="8" maxlength="8" id="postcode" th:field="*{postcode}" placeholder="Postcode"><span id="postCodeErrorText" class="errorText"></span></td></tr>
             <tr><td colspan="2"><hr></td></tr>
 
         </table>

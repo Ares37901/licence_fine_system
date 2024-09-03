@@ -33,29 +33,19 @@ public class licenceController {
 
 	@GetMapping("/inputdetails")
 	public String isInput(Model model) {
-		model.addAttribute("fine", new FineAmountDTO());
+		model.addAttribute("fineAmountDTO", new FineAmountDTO());
 		return "inputdetails";
 	}
 
 	@PostMapping("/payment")
-	public String isPayment(@ModelAttribute FineAmountDTO fineAmountDTO, Model model) {
-		FineAmountDTO populatedDTO = new FineAmountDTO();
+	public String isPayment(@ModelAttribute("fineAmountDTO") FineAmountDTO fineAmountDTO, Model model) {
 
-		populatedDTO.setReference(fineAmountDTO.getReference());
-		populatedDTO.setFirstName(fineAmountDTO.getFirstName());
-		populatedDTO.setLastName(fineAmountDTO.getLastName());
-		populatedDTO.setHouse(fineAmountDTO.getHouse());
-		populatedDTO.setStreet(fineAmountDTO.getStreet());
-		populatedDTO.setCity(fineAmountDTO.getCity());
-		populatedDTO.setPostcode(fineAmountDTO.getPostcode());
-		populatedDTO.setFine(fineAmountDTO.getFine());
-		populatedDTO.setEmail(fineAmountDTO.getEmail());
-
-		model.addAttribute("finePaymentDTO", populatedDTO);
-			return "payment";
+		logger.info("object output: " + fineAmountDTO.getReference() + fineAmountDTO.getCity() + fineAmountDTO.getFine());
+		model.addAttribute("fineAmountDTO", fineAmountDTO);
+		return "payment";
 	}
 
-	@PostMapping("/success")
+	@GetMapping("/success")
 	public String isCompleted(Model model) {
 		return "success";
 	}
@@ -63,8 +53,9 @@ public class licenceController {
 
 
 	@PostMapping("/amendAmount")
-	public String displayFineForm(@ModelAttribute FineAmountDTO fineAmountDTO, Model model) {
-		//logger.info("db output: " + liceService.findAll());
+	public String displayFineForm(@ModelAttribute("fineAmountDTO") FineAmountDTO fineAmountDTO, Model model) {
+		logger.info("object output: " + fineAmountDTO.getReference() + fineAmountDTO.getCity() + fineAmountDTO.getFine());
+
 		Licence theLicence = liceService.findByReference(fineAmountDTO.getReference());
 
 		if (theLicence != null) {
@@ -97,6 +88,38 @@ public class licenceController {
 		} else {
 			// Handle case where fine is not found
 			return "_error2";
+		}
+	}
+
+
+	@PostMapping("/updateAmount")
+	public String updateAmount(@ModelAttribute("fineAmountDTO") FineAmountDTO fineAmountDTO, Model model) {
+			model.addAttribute("fineAmountDTO", fineAmountDTO);
+		String theReference = fineAmountDTO.getReference();
+		double theAmount = fineAmountDTO.getFine();
+		logger.info("object output: " + fineAmountDTO.getReference() + fineAmountDTO.getCity() + fineAmountDTO.getFine() + theAmount);
+
+
+		// Check if amount and reference is set to something acceptable
+		// i.e. Amount is not zero, and Reference is not an empty string or null
+		if(theAmount <= 0) {
+			return "redirect:/_error";
+		} else if(theReference.trim().isEmpty()) {
+			return "redirect:/_error2";
+		}
+		else {
+			// Update the specific column of the entity
+			Licence theFine = liceService.findByReference(theReference);
+			double balance = theFine.getFine();
+			balance = balance - fineAmountDTO.getFine();
+			theFine.setFine(balance);
+
+			// Save the updated entity
+			liceService.save(theFine);
+
+			// Redirect to a success page or handle accordingly
+			return "redirect:/success";
+
 		}
 	}
 

@@ -9,22 +9,23 @@
     <body onload="loadSettings()">
     <div th:insert="fragments/header :: header"></div>
 
-        <form th:object="${fineAmountDTO}" th:action="@{/payment}" method="post" target="payment">
+        <form th:object="${fineAmountDTO}" th:action="@{/payment}" method="post">
 
             <table>
-                <tr><td><label>Reference: </label></td><td><p th:text="*{reference}" /></p></td></tr>
-                <tr><td><label>First Name: </label></td><td><p th:text="*{firstName}" /></p></td></tr>
-                <tr><td><label>Surname: </label></td><td><p th:text="*{lastName}" /></p></td></tr>
+                <tr><td><label for="reference">Reference:</label></td><td><input type="text" id="reference" th:field="*{reference}" placeholder="Ref no" readonly></td></tr>
+                <tr><td><label for="firstName">First Name:</label></td><td><input type="text" id="firstName" th:field="*{firstName}" placeholder="First Name" readonly></td></tr>
+                <tr><td><label for="lastName">Surname:</label></td><td><input type="text" id="lastName" th:field="*{lastName}" placeholder="Last Name" readonly></td></tr>
                 <tr><td>Address:</td><td><hr></td></tr>
-                <tr><td><label>House No: </label></td><td><p th:text="*{house}" /></p></td></tr>
-                <tr><td><label>Street:</label></td><td><p th:text="*{street}" /></p></td></tr>
-                <tr><td><label>Town:</label></td><td><p th:text="*{city}" /></p></td></tr>
-                <tr><td><label>Postcode:</label></td><td><p th:text="*{postcode}" /></p></td></tr>
-                <tr><td><label>Fine amount:</label></td><td><p th:text="*{fine}" /></p></td></tr>
+                <tr><td><label for="house">House Number: </label></td><td><input type="text" size ="4" id="house" th:field="*{house}" placeholder="House no" readonly></td></tr>
+                <tr><td><label for="street">Street: </label></td><td><input type="text" id="street" th:field="*{street}" placeholder="Street" readonly></td></tr>
+                <tr><td><label for="city">Town:</label></td><td><input type="text" id="city" th:field="*{city}" placeholder="City/Town" readonly></td></tr>
+                <tr><td><label for="postcode">Postcode:</label></td><td><input type="text" size="8" maxlength="8" id="postcode" th:field="*{postcode}" placeholder="Postcode" readonly><span id="postCodeErrorText" class="errorText"></span></td></tr>
+                <tr><td><label for="fine">Fine amount: </label></td><td><input type="text" id="fine" th:field="*{fine}" placeholder="£" readonly></td></tr>
                 <tr><td colspan="2"><hr></td></tr>
 
             </table>
             <br />
+            <input type="hidden" th:field=*{email} />
             <input type="submit" value="Continue to payment">
         </form>
         <div th:insert="fragments/footer :: footer"></div>
