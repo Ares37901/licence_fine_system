@@ -1,6 +1,7 @@
 var darkMode = false;
 var largeText = false;
-var twoDigitYear = new Date().getFullYear().toString().substr(-2);
+var twoDigitYear = parseInt(new Date().getFullYear().toString().substr(-2));
+var monthNumber = new Date().getMonth() + 1;
 var postCodeErrorText;
 var expiryDateErrorText;
 var creditCardErrorText;
@@ -138,7 +139,7 @@ function validateFields()
             noErrors = false;
             expiryDateErrorText.innerHTML = "Expiry date is not a number.";
         }
-        else if(expiryFirstPart <1 || expiryFirstPart >12 || expirySecondPart < twoDigitYear)
+        else if(expiryFirstPart <1 || expiryFirstPart >12 || expirySecondPart < twoDigitYear || ((expirySecondPart == twoDigitYear) && expiryFirstPart <= monthNumber))
         {
             noErrors = false;
             expiryDateErrorText.innerHTML = "Expiry date out of bounds.";
