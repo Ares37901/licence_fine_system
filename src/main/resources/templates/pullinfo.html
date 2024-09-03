@@ -12,19 +12,27 @@
         <form th:object="${fineAmountDTO}" th:action="@{/payment}" method="post">
 
             <table>
-                <tr><td><label for="reference">Reference:</label></td><td><input type="text" id="reference" th:field="*{reference}" placeholder="Ref no" readonly></td></tr>
-                <tr><td><label for="firstName">First Name:</label></td><td><input type="text" id="firstName" th:field="*{firstName}" placeholder="First Name" readonly></td></tr>
-                <tr><td><label for="lastName">Surname:</label></td><td><input type="text" id="lastName" th:field="*{lastName}" placeholder="Last Name" readonly></td></tr>
+                <tr><td><label for="reference">Reference:</label></td><td><label id="reference" th:text="*{reference}" /></td></tr>
+                <tr><td><label for="firstName">First Name:</label></td><td><label id="firstName" th:text="*{firstName}" /></td></tr>
+                <tr><td><label for="lastName">Surname:</label></td><td><label id="lastName" th:text="*{lastName}" /></td></tr>
                 <tr><td>Address:</td><td><hr></td></tr>
-                <tr><td><label for="house">House Number: </label></td><td><input type="text" size ="4" id="house" th:field="*{house}" placeholder="House no" readonly></td></tr>
-                <tr><td><label for="street">Street: </label></td><td><input type="text" id="street" th:field="*{street}" placeholder="Street" readonly></td></tr>
-                <tr><td><label for="city">Town:</label></td><td><input type="text" id="city" th:field="*{city}" placeholder="City/Town" readonly></td></tr>
-                <tr><td><label for="postcode">Postcode:</label></td><td><input type="text" size="8" maxlength="8" id="postcode" th:field="*{postcode}" placeholder="Postcode" readonly><span id="postCodeErrorText" class="errorText"></span></td></tr>
-                <tr><td><label for="fine">Fine amount: </label></td><td><input type="text" id="fine" th:field="*{fine}" placeholder="£" readonly></td></tr>
+                <tr><td><label for="house">House Number: </label></td><td><label id="house" th:text="*{house}" /></td></tr>
+                <tr><td><label for="street">Street: </label></td><td><label id="street" th:text="*{street}" /></td></tr>
+                <tr><td><label for="city">Town:</label></td><td><label id="city" th:text="*{city}" /></td></tr>
+                <tr><td><label for="postcode">Postcode:</label></td><td><label id="postcode" th:text="*{postcode}" /></td></tr>
+                <tr><td><label for="fine">Fine amount: </label></td><td><label id="fine" th:text="*{fine}" /></td></tr>
                 <tr><td colspan="2"><hr></td></tr>
 
             </table>
             <br />
+            <input type="hidden" th:field="*{reference}" />
+            <input type="hidden" th:field="*{firstName}" />
+            <input type="hidden" th:field="*{lastName}" />
+            <input type="hidden" th:field="*{house}" />
+            <input type="hidden" th:field="*{street}" />
+            <input type="hidden" th:field="*{city}" />
+            <input type="hidden" th:field="*{postcode}" />
+            <input type="hidden" th:field="*{fine}" />
             <input type="hidden" th:field=*{email} />
             <input type="submit" value="Continue to payment">
         </form>
