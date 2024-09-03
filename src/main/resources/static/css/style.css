@@ -54,3 +54,6 @@ input[type=button], input[type=submit], .button{
     padding: 5px;
     font-size: inherit;
 }
+input[type=text]{
+    font-size: inherit;
+}
